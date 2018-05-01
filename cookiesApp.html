@@ -1,0 +1,53 @@
+<html>
+<body>
+
+	<script>
+	var myCookies={};
+
+	function saveCookies()
+	{
+		myCookies["_user"]=document.getElementById("user").value;
+		myCookies["_usage"]=document.getElementById("age").value;
+		// Start reusable Code
+		document.cookie="";
+		var expiresAttrib= new Date(Date.now()+ 60*1000).toString();
+		var cookieString="";
+		for( var key in myCookies)
+		{
+			cookieString= key +"="+ myCookies[key] +";" +expiresAttrib+";";
+			document.cookie=cookieString;
+		}
+		// End reusable code
+		document.getElementById("out").innerHTML=document.cookie;
+	}
+
+	function loadCookies()
+	{
+		//start reusable code
+		myCookies={};
+		var kv=document.cookie.split(";");
+		for (var id in kv)
+		{
+			var cookie=kv[id].split("=");
+			myCookies[cookie[0].trim()]=cookie[1];
+		}
+		//end reusable code
+		document.getElementById("user").value=myCookies["_user"];
+		document.getElementById("age").value=myCookies["_usage"];
+	}
+
+
+
+
+	</script>
+
+</body>
+
+User : <input type="text" id="user">
+Age: <input type="text" id="age">
+<button onclick="saveCookies()"> Save to cookies </button>
+<button onclick="loadCookies()"> Load From cookies</button>
+
+
+
+</html>
