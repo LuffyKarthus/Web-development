@@ -1,9 +1,7 @@
 <html>
 <body>
-
 	<script>
 	var myCookies={};
-
 	function saveCookies()
 	{
 		myCookies["_user"]=document.getElementById("user").value;
@@ -20,7 +18,6 @@
 		// End reusable code
 		document.getElementById("out").innerHTML=document.cookie;
 	}
-
 	function loadCookies()
 	{
 		//start reusable code
@@ -35,19 +32,12 @@
 		document.getElementById("user").value=myCookies["_user"];
 		document.getElementById("age").value=myCookies["_usage"];
 	}
-
-
-
-
 	</script>
-
 </body>
 
 User : <input type="text" id="user">
 Age: <input type="text" id="age">
 <button onclick="saveCookies()"> Save to cookies </button>
 <button onclick="loadCookies()"> Load From cookies</button>
-
-
 
 </html>
